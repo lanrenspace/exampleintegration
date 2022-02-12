@@ -1,0 +1,17 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: lanrenspace.cloud.eureka.server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 客户端与EurekaServer交互的地址，如果是集群，也需要写其他server的地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    # ⾃⼰就是服务不需要注册⾃⼰
+    register-with-eurek: false
+    #⾃⼰就是服务不需要从Eureka Server获取服务信息
+    #默认为true，置为false
+    fetch-registry: false
